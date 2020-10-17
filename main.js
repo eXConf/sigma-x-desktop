@@ -6,10 +6,14 @@ robot.setKeyboardDelay(30)
 new Menu()
 Menu.setApplicationMenu(null)
 
+let win
+
 function createWindow() {
-  const win = new BrowserWindow({
-    width: 650,
+   win = new BrowserWindow({
+    width: 620,
     height: 800,
+    minWidth: 400,
+    minHeight: 450,
     backgroundColor: 'white',
     webPreferences: {
       nodeIntegration: false,
@@ -20,8 +24,12 @@ function createWindow() {
     }
   })
 
-  win.loadFile('./sigma-x-react/public/index.html')
+  win.loadFile('./public/index.html')
 }
+
+// require('electron-reload')(__dirname, {
+//   electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+// })
 
 app.whenReady().then(createWindow)
 
@@ -42,3 +50,9 @@ ipcMain.on('to-chat', (e, message) => {
       robot.keyToggle("alt", "up")
   }, 10)
 })
+
+// ipcMain.on('resize', (e, width) => {
+//   const height = win.getSize()[1]
+//   console.log(width, win.getSize()[0])
+//   // win.setSize(width + 10, height)
+// })
