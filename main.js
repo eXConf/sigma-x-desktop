@@ -25,6 +25,11 @@ function createWindow() {
   })
 
   win.loadFile('./public/index.html')
+
+  win.webContents.on('new-window', function(e, url) {
+    e.preventDefault();
+    require('electron').shell.openExternal(url);
+  })
 }
 
 // require('electron-reload')(__dirname, {
