@@ -1,7 +1,7 @@
 const { app, BrowserWindow, Menu, ipcMain, clipboard } = require('electron')
 const path = require('path')
 const robot = require('robotjs')
-robot.setKeyboardDelay(30)
+robot.setKeyboardDelay(90)
 
 new Menu()
 Menu.setApplicationMenu(null)
@@ -44,16 +44,12 @@ ipcMain.on('to-chat', (e, message) => {
   robot.keyTap("tab")
   robot.keyToggle("alt", "up")
   robot.keyToggle("shift", "down")
-  // SetTimeout - попытка исправить баг, когда текст из буфера по какой-то
-  // причине не вставляется
-  setTimeout(() => {
-      robot.keyTap("insert")
-      robot.keyToggle("shift", "up")
-      robot.keyTap("enter")
-      robot.keyToggle("alt", "down")
-      robot.keyTap("tab")
-      robot.keyToggle("alt", "up")
-  }, 10)
+  robot.keyTap("insert")
+  robot.keyToggle("shift", "up")
+  robot.keyTap("enter")
+  robot.keyToggle("alt", "down")
+  robot.keyTap("tab")
+  robot.keyToggle("alt", "up")
 })
 
 // ipcMain.on('resize', (e, width) => {

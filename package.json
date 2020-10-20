@@ -48,6 +48,15 @@
     "extends": null,
     "publish": null,
     "productName": "SIGMA X",
-    "copyright": "Copyright © 2020 Sergey Sosedkin"
+    "copyright": "Copyright © 2020 Sergey Sosedkin",
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage"
+        }
+      ],
+      "executableName": "sigma-x",
+      "category": "Utility"
+    }
   }
 }
