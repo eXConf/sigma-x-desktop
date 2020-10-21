@@ -1,7 +1,8 @@
 const { app, BrowserWindow, Menu, ipcMain, clipboard } = require('electron')
 const path = require('path')
 const robot = require('robotjs')
-robot.setKeyboardDelay(90)
+
+robot.setKeyboardDelay(30)
 
 new Menu()
 Menu.setApplicationMenu(null)
@@ -46,10 +47,13 @@ ipcMain.on('to-chat', (e, message) => {
   robot.keyToggle("shift", "down")
   robot.keyTap("insert")
   robot.keyToggle("shift", "up")
-  robot.keyTap("enter")
-  robot.keyToggle("alt", "down")
-  robot.keyTap("tab")
-  robot.keyToggle("alt", "up")
+  setTimeout(() => {
+    robot.keyTap("enter")
+    robot.keyToggle("alt", "down")
+    robot.keyTap("tab")
+    robot.keyToggle("alt", "up")
+  }, 90);
+  
 })
 
 // ipcMain.on('resize', (e, width) => {
