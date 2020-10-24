@@ -183,6 +183,7 @@ html {
 .player-score {
   border-bottom: 1px solid var(--theme-lighter);
   width: var(--player-score-width);
+  color: var(--theme-text-dark)
 }
 
 .divider {
@@ -194,6 +195,7 @@ html {
   font-weight: bold;
   font-size: 1.5rem;
   width: 2rem;
+  color: var(--theme-text-dark);
   background-color: var(--theme-light);
 }
 .sigma:hover {
@@ -206,6 +208,7 @@ html {
 
 .player-sum {
   font-weight: bold;
+  color: var(--theme-text-dark);
   background-color: var(--theme-light);
   width: var(--player-score-width);
   padding: 0.3rem 0;
@@ -251,10 +254,6 @@ html {
   color: var(--theme-main);
 }
 
-.player-button:hover {
-  color: var(--theme-dark);
-}
-
 .player-button:active {
   color: var(--theme-main);
 }
@@ -287,6 +286,9 @@ html {
   .nav-btn:hover {
     background-color: var(--theme-dark);
   }
+  .player-button:hover {
+    color: var(--theme-dark);
+  }
 }
 
 
@@ -317,7 +319,8 @@ html {
 }
 
 .package-el {
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
+  color: var(--theme-text-dark);
   -webkit-touch-callout: none; 
     -webkit-user-select: none;
      -khtml-user-select: none;
@@ -540,6 +543,27 @@ border: 0.2rem solid var(--theme-light);  /* creates padding around scroll thumb
   height: 3rem;
   width: calc(var(--game-width) - 9rem);
   border: 1px solid rgba(0,0,0,0.5);
+}
+
+.user-theme-text {
+  font-size: 1.4rem;
+  width: calc(var(--game-width) - 9rem);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.user-colors {
+  display: flex;
+  flex-direction: row;
+  width: calc(var(--game-width) - 9rem);
+  font-size: 1.3rem;
+  margin: 0.8rem;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+.user-color {
+  width: 100%;
+  height: 3rem;
 }
 
 /* @media (max-width: 800px) and (orientation: portrait) {
