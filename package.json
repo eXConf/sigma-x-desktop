@@ -1,6 +1,6 @@
 {
   "name": "sigma-x-2",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Помощник ведущего для спортивной \"Своей игры\"",
   "main": "main.js",
   "scripts": {
@@ -62,7 +62,7 @@
     },
     "win": {
       "target": [
-        "zip"
+        "portable"
       ]
     }
   }
