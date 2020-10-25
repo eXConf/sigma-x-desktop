@@ -9,7 +9,6 @@
     "watch": "webpack --config webpack.common.js --watch",
     "dist-linux": "electron-builder --linux",
     "dist-win": "electron-builder --win",
-    "postinstall": "electron-builder install-app-deps",
     "rebuild": "npm rebuild robotjs-ex && electron-rebuild -f -w robotjs-ex",
     "build-win-online": "npm run rebuild && npm run dist-win"
   },
