@@ -1,11 +1,11 @@
 const { app, BrowserWindow, Menu, ipcMain, clipboard } = require('electron')
 const path = require('path')
-const robot = require('robotjs')
+const robot = require('robotjs-ex')
 
 robot.setKeyboardDelay(30)
 
 new Menu()
-Menu.setApplicationMenu(null)
+// Menu.setApplicationMenu(null)
 
 let win
 
@@ -20,7 +20,7 @@ function createWindow() {
       nodeIntegration: false,
       worldSafeExecuteJavaScript: true,
       contextIsolation: true,
-      devTools: false,
+      // devTools: false,
       preload: path.join(__dirname, 'preload.js')
     }
   })
