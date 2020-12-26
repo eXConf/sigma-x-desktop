@@ -26,6 +26,7 @@ function createWindow() {
   })
 
   win.loadFile('./public/index.html')
+  win.setTitle('SIGMA X v2.1.2')
 
   win.webContents.on('new-window', function(e, url) {
     e.preventDefault();
