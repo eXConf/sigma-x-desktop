@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Menu, ipcMain, clipboard } = require('electron')
 const path = require('path')
 const robot = require('robotjs')
+const fs = require('fs')
 
 robot.setKeyboardDelay(30)
 
@@ -66,6 +67,24 @@ ipcMain.on('to-chat', (e, message) => {
     robot.keyToggle('alt', 'up')
   }, 90)
 })
+
 ipcMain.on('copy-to-buffer', (e, text) => {
   clipboard.writeText(text)
+})
+
+ipcMain.on('save-state-to-file', (e, state) => {
+  try {
+    fs.writeFileSync('state.sigma', state)
+  } catch (err) {
+    window.alert('Не удалось сохранить состояние в файл')
+  }
+})
+
+ipcMain.on('read-state-from-file', e => {
+  try {
+    const state = fs.readFileSync('state.sigma', 'utf8')
+    e.sender.send('send-loaded-state', state)
+  } catch (err) {
+    console.log(err)
+  }
 })
