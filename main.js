@@ -11,7 +11,7 @@ const RESOURCES_PATH = app.isPackaged
   ? path.join(process.resourcesPath, 'assets')
   : path.join(__dirname, '../assets')
 
-const getAssetPath = (...paths: string[]): string => {
+const getAssetPath = (...paths) => {
   return path.join(RESOURCES_PATH, ...paths)
 }
 
