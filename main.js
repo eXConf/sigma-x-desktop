@@ -44,9 +44,9 @@ function createWindow() {
   })
 }
 
-// require('electron-reload')(__dirname, {
-//   electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-// })
+// Fix for windows portable build
+const folder = process.env.PORTABLE_EXECUTABLE_DIR
+const filePath = folder ? path.join(folder, 'sigma.state') : 'sigma.state'
 
 app.whenReady().then(createWindow)
 
@@ -74,15 +74,15 @@ ipcMain.on('copy-to-buffer', (e, text) => {
 
 ipcMain.on('save-state-to-file', (e, state) => {
   try {
-    fs.writeFileSync('state.sigma', state)
+    fs.writeFileSync(filePath, state)
   } catch (err) {
-    window.alert('Не удалось сохранить состояние в файл')
+    console.log(err)
   }
 })
 
 ipcMain.on('read-state-from-file', e => {
   try {
-    const state = fs.readFileSync('state.sigma', 'utf8')
+    const state = fs.readFileSync(filePath, 'utf8')
     e.sender.send('send-loaded-state', state)
   } catch (err) {
     console.log(err)
