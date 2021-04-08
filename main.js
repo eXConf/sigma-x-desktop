@@ -48,7 +48,11 @@ const filePath = folder ? path.join(folder, 'sigma.state') : 'sigma.state'
 
 app.whenReady().then(createWindow)
 
-robot.setKeyboardDelay(15)
+robot.setKeyboardDelay(60)
+
+ipcMain.on('set-robot-delay', (e, delay) => {
+  robot.setKeyboardDelay(delay)
+})
 
 ipcMain.on('to-chat', (e, message) => {
   clipboard.writeText(message)
