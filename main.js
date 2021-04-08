@@ -3,8 +3,6 @@ const path = require('path')
 const robot = require('robotjs')
 const fs = require('fs')
 
-robot.setKeyboardDelay(30)
-
 new Menu()
 Menu.setApplicationMenu(null)
 
@@ -49,6 +47,8 @@ const folder = process.env.PORTABLE_EXECUTABLE_DIR
 const filePath = folder ? path.join(folder, 'sigma.state') : 'sigma.state'
 
 app.whenReady().then(createWindow)
+
+robot.setKeyboardDelay(15)
 
 ipcMain.on('to-chat', (e, message) => {
   clipboard.writeText(message)
